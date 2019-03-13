@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: CONFIG_SERVER
+  cloud:
+    config:
+      name: config_server
+      server:
+        git:
+          uri: git@github.com:Jaswine/spring-cloud-config.git
+          username: jaswine
+          password: Jasmine1017@wyz

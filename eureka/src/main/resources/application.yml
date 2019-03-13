@@ -1,0 +1,36 @@
+
+spring:
+  application:
+    name: EUREKA_SERVER
+
+---
+server:
+  port: 6061
+
+
+spring:
+  profiles: peer1
+
+eureka:
+  instance:
+    hostname: peer1
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://peer2:6062/eureka
+
+---
+server:
+  port: 6062
+
+
+spring:
+  profiles: peer2
+
+eureka:
+  instance:
+    hostname: peer2
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://peer1:6061/eureka

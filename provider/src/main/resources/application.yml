@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: PROVIDER
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer2:6062/eureka/,http://peer1:6061/eureka/
+server:
+  servlet:
+    path: /p
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+---
+spring:
+  profiles: dev
+
+server:
+  port: 9001
+---
+spring:
+  profiles: pro
+
+server:
+  port: 9002

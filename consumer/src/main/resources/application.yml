@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: CONSUMER
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer2:6062/eureka/,http://peer1:6061/eureka/
+server:
+  servlet:
+    path: /c
+feign:
+  hystrix:
+    enabled: true
+---
+spring:
+  profiles: dev
+
+server:
+  port: 7001
+
+---
+spring:
+  profiles: pro
+
+server:
+  port: 7002

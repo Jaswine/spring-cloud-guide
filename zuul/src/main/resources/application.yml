@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: ZUUL
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer2:6062/eureka/,http://peer1:6061/eureka/
+
+server:
+  servlet:
+    path: /zuul
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+zuul:
+  routes:
+    PROVIDER: /p/**
+  prefix: /api
+  strip-prefix: false
+---
+spring:
+  profiles: dev
+
+server:
+  port: 8001
+
+---
+spring:
+  profiles: pro
+
+server:
+  port: 8002

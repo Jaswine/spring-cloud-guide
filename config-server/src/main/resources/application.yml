@@ -7,5 +7,5 @@ spring:
       server:
         git:
           uri: git@github.com:Jaswine/spring-cloud-config.git
-          username: jaswine
-          password: Jasmine1017@wyz
+          username:
+          password:
